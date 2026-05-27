@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mesto</title>
+    <script type="module" crossorigin src="./assets/index-DXla9YAr.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C_dpGLZK.css">
+  </head>
+  <body class="page">
+    <div class="page__content">
+      <header class="header page__section">
+        <img
+          src="./assets/logo-C_QQpFK1.svg"
+          alt="Логотип проекта место"
+          class="logo header__logo"
+        />
+      </header>
+      <main class="content">
+        <section class="profile page__section">
+          <div class="profile__image"></div>
+          <div class="profile__info">
+            <h1 class="profile__title"></h1>
+            <button class="profile__edit-button" type="button"></button>
+            <p class="profile__description"></p>
+          </div>
+          <button class="profile__add-button" type="button"></button>
+        </section>
+        <section class="places page__section">
+          <ul class="places__list"></ul>
+        </section>
+      </main>
+      <footer class="footer page__section">
+        <p class="footer__copyright">© 2025 Mesto Russia</p>
+      </footer>
+
+      <!-- текст в профиле имя рот занятий -->
+      <div class="popup popup_type_edit">
+        <div class="popup__content">
+          <button type="button" class="popup__close"></button>
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <form class="popup__form" name="edit-profile" novalidate>
+            <label class="popup__label">
+              <input
+                type="text"
+                name="user-name"
+                id="user-name"
+                class="popup__input popup__input_type_name"
+                placeholder="Имя"
+                maxlength="20"
+                minlength="2"
+                pattern="^[a-zA-Zа-яА-ЯёЁ \\\-]+$"
+                required
+                data-error-value-missing="Укажите имя"
+                data-error-empty-spaces="Имя не может состоять из пробелов"
+                data-error-too-short-after-trim="Имя должно содержать минимум 2 символа (без учёта пробелов)"
+                data-error-too-short="Имя должно содержать минимум 2 символа"
+                data-error-pattern-mismatch="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+              />
+              <span class="popup__error" id="user-name-error"></span>
+            </label>
+            <label class="popup__label">
+              <input
+                type="text"
+                name="user-description"
+                id="user-description"
+                class="popup__input popup__input_type_description"
+                placeholder="Занятие"
+                maxlength="200"
+                minlength="2"
+                required
+                data-error-value-missing="Укажите род занятий"
+                data-error-too-short="Минимум 2 символа"
+                data-error-empty-spaces="Имя не может состоять из пробелов"
+                data-error-too-short-after-trim="Имя должно содержать минимум 2 символа (без учёта пробелов)"
+              />
+              <span class="popup__error" id="user-description-error"></span>
+            </label>
+            <button
+              type="submit"
+              class="button popup__button popup__button_disabled"
+              disabled
+            >
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- новое место -->
+      <div class="popup popup_type_new-card">
+        <div class="popup__content">
+          <button type="button" class="popup__close"></button>
+          <h3 class="popup__title">Новое место</h3>
+          <form class="popup__form" name="new-place" novalidate>
+            <label class="popup__label">
+              <input
+                type="text"
+                name="place-name"
+                id="place-name"
+                class="popup__input popup__input_type_card-name"
+                placeholder="Название"
+                maxlength="30"
+                minlength="2"
+                pattern="^[a-zA-Zа-яА-ЯёЁ \\\-]+$"
+                required
+                data-error-value-missing="Введите название места"
+                data-error-empty-spaces="Имя не может состоять из пробелов"
+                data-error-too-short-after-trim="Имя должно содержать минимум 2 символа (без учёта пробелов)"
+                data-error-too-short="Минимум 2 символа"
+                data-error-pattern-mismatch="Разрешены только буквы, пробелы и дефисы"
+              />
+              <span class="popup__error" id="place-name-error"></span>
+            </label>
+            <label class="popup__label">
+              <input
+                type="url"
+                name="place-link"
+                id="place-link"
+                class="popup__input popup__input_type_url"
+                placeholder="Ссылка на картинку"
+                required
+                data-error-value-missing="Укажите ссылку на изображение"
+                data-error-type-mismatch="Введите корректный URL (например, https://example.com/image.jpg)"
+              />
+              <span class="popup__error" id="place-link-error"></span>
+            </label>
+            <button
+              type="submit"
+              class="button popup__button popup__button_disabled"
+              disabled
+            >
+              Создать
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- картинка -->
+      <div class="popup popup_type_image">
+        <div class="popup__content popup__content_content_image">
+          <button type="button" class="popup__close"></button>
+          <img src="" alt="" class="popup__image" />
+          <p class="popup__caption"></p>
+        </div>
+      </div>
+      <!-- аватаркк-->
+      <div class="popup popup_type_edit-avatar">
+        <div class="popup__content">
+          <button type="button" class="popup__close"></button>
+          <h3 class="popup__title">Обновить аватар</h3>
+          <form class="popup__form" name="edit-avatar" novalidate>
+            <label class="popup__label">
+              <input
+                type="url"
+                name="user-avatar"
+                id="user-avatar"
+                class="popup__input popup__input_type_avatar"
+                placeholder="Ссылка на изображение"
+                required
+                data-error-value-missing="Укажите ссылку на аватар"
+                data-error-type-mismatch="Введите корректный URL (например, https://example.com/avatar.jpg)"
+              />
+              <span class="popup__error" id="user-avatar-error"></span>
+            </label>
+            <button
+              type="submit"
+              class="button popup__button popup__button_disabled"
+              disabled
+            >
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </div>
+
+
+    <!-- mr шняга-->
+  <div class="popup popup_type_info">
+  <div class="popup__content popup__content_content_info">
+    <button type="button" class="popup__close"></button>
+    <h3 class="popup__title">Статистика карточек</h3>
+    <div class="popup__info">
+      <p class="popup__info-item">
+        <span class="popup__info-term">Всего пользователей:</span>
+        <span class="popup__info-description" id="total-users">0</span>
+      </p>
+      <p class="popup__info-item">
+        <span class="popup__info-term">Всего лайков:</span>
+        <span class="popup__info-description" id="total-likes">0</span>
+      </p>
+      <p class="popup__info-item">
+        <span class="popup__info-term">Максимально лайков от одного:</span>
+        <span class="popup__info-description" id="max-likes-one">0</span>
+      </p>
+      <p class="popup__info-item">
+        <span class="popup__info-term">Чемпион лайков:</span>
+        <span class="popup__info-description" id="like-champion">—</span>
+      </p>
+    </div>
+    <h2 class="popup__title" style="margin-top: 20px;">Популярные карточки:</h2>
+    <ul class="popup__list" id="popular-cards-list"></ul>
+  </div>
+</div>
+</div>
+</body>
+
+
+<template id="card-template">
+  <li class="places__item card">
+    <img class="card__image" src="" alt="" />
+    <div class="card__control">
+      <button type="button" class="card__control-button card__control-button_type_delete"></button>
+    </div>
+    <div class="card__description">
+      <h2 class="card__title"></h2>
+      <div class="card__likes">
+        <button type="button" class="card__like-button"></button>
+        <span class="card__like-count"></span>   
+      </div>
+    </div>
+  </li>
+</template>
+
+<template id="popup-info-definition-template">
+  <li class="popup__info-item">
+    <span class="popup__info-term popup__info-term_user-name"></span>
+    <span class="popup__info-description"></span>
+  </li>
+</template>
