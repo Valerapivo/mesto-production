@@ -8,8 +8,8 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Mesto</title>
-    <script type="module" crossorigin src="./assets/index-DXla9YAr.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-C_dpGLZK.css">
+    <script type="module" crossorigin src="./assets/index-D1L1ASsc.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-StrvJcsg.css">
   </head>
   <body class="page">
     <div class="page__content">
@@ -55,11 +55,7 @@
                 minlength="2"
                 pattern="^[a-zA-Zа-яА-ЯёЁ \\\-]+$"
                 required
-                data-error-value-missing="Укажите имя"
-                data-error-empty-spaces="Имя не может состоять из пробелов"
-                data-error-too-short-after-trim="Имя должно содержать минимум 2 символа (без учёта пробелов)"
-                data-error-too-short="Имя должно содержать минимум 2 символа"
-                data-error-pattern-mismatch="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+                data-error-pattern="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
               />
               <span class="popup__error" id="user-name-error"></span>
             </label>
@@ -73,10 +69,6 @@
                 maxlength="200"
                 minlength="2"
                 required
-                data-error-value-missing="Укажите род занятий"
-                data-error-too-short="Минимум 2 символа"
-                data-error-empty-spaces="Имя не может состоять из пробелов"
-                data-error-too-short-after-trim="Имя должно содержать минимум 2 символа (без учёта пробелов)"
               />
               <span class="popup__error" id="user-description-error"></span>
             </label>
@@ -108,11 +100,7 @@
                 minlength="2"
                 pattern="^[a-zA-Zа-яА-ЯёЁ \\\-]+$"
                 required
-                data-error-value-missing="Введите название места"
-                data-error-empty-spaces="Имя не может состоять из пробелов"
-                data-error-too-short-after-trim="Имя должно содержать минимум 2 символа (без учёта пробелов)"
-                data-error-too-short="Минимум 2 символа"
-                data-error-pattern-mismatch="Разрешены только буквы, пробелы и дефисы"
+                data-error-pattern="Разрешены только буквы, пробелы и дефисы"
               />
               <span class="popup__error" id="place-name-error"></span>
             </label>
@@ -124,8 +112,7 @@
                 class="popup__input popup__input_type_url"
                 placeholder="Ссылка на картинку"
                 required
-                data-error-value-missing="Укажите ссылку на изображение"
-                data-error-type-mismatch="Введите корректный URL (например, https://example.com/image.jpg)"
+                data-error-pattern="Введите корректный URL (например, https://example.com/image.jpg)"
               />
               <span class="popup__error" id="place-link-error"></span>
             </label>
@@ -162,8 +149,7 @@
                 class="popup__input popup__input_type_avatar"
                 placeholder="Ссылка на изображение"
                 required
-                data-error-value-missing="Укажите ссылку на аватар"
-                data-error-type-mismatch="Введите корректный URL (например, https://example.com/avatar.jpg)"
+                data-error-pattern="Введите корректный URL (например, https://example.com/avatar.jpg)"
               />
               <span class="popup__error" id="user-avatar-error"></span>
             </label>
